@@ -40,3 +40,16 @@
 合并某分支到当前分支“git merge <name>”
 
 删除分支“git branch -d <name>”
+
+查看分支合并图命令“git log --graph”
+
+保留合并分支历史“git merge --no-ff”
+
+储存工作现场“git stash”
+
+恢复工作现场“git stash apply”
+
+删除stash“git stash drop”
+
+恢复并删除stash “git stash pop”
+
