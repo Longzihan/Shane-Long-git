@@ -1,0 +1,27 @@
+查看当前连接设备	adb devices
+如果发现多个设备	adb -s 设备号 其他指令
+查看顶部Activity	adb shell dumpsys activity | findstr "mFocusedActivity"
+查看信息		adb shell dumpsys XXXX
+查看日志		adb logcat
+安装apk文件	adb install xxx.apk
+		adb install -r xxx.apk 覆盖安装
+		adb install -t -r xxx.apk 比分直接RUN出来的包是test-onlu的无法安装，推荐使用"-t"
+卸载APP		adb uninstall com.zhy.app
+		adb uninstall -k com.zhy.app 保留数据
+传递文件		电脑->手机 adb push 文件名 手机端SD卡路径
+		手机->电脑 adb pull 路径/文件名
+查看手机端安装的所有APP包名 adb shell pm list packages
+启动Activity	adb shell am start 包名/Activity路径
+		adb shell am start com.zhy.aaa/com.zhy.aaa.MainActivity -e name zhy 带参数启动Activity
+		adb shell am start -a "android.intent.action,VIEW" -d "http://www.google.com" 启动隐式Internet
+发送广播		adb shell am broadcast -a "broadcastactionfilter"
+		adb shell am broadcast -a "broadcastactionfilter" -e name zhy 带参数发送广播
+启动服务		adb shell am startservice "com.zhy.aaa/com.zhy.aaa.MyServer"
+屏幕截图		adb shell screencap /SDcard/screen.png
+录制视频		adb shell screenrecord /SDcard/demo.mp4
+事件输入		adb shell input text "insert%stext%shere" 屏幕输出信息
+		adb shell input tap 500 1450 模拟屏幕点击
+		adb shell input swipe 100 500 100 1450 100 模拟屏幕滑动/长按
+		adb shell input keyevent 25 模拟点按实体按钮
+		
+
